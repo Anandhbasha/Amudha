@@ -88,14 +88,16 @@ b=5
 # print(not a!=10)
 
 # membership 
-list = ["apple","banana","kiwi"]
-print("apple" in list)
-print("Apple" not in list)
+# list = ["apple","banana","kiwi"]
+# print("apple" in list)
+# print("Apple" not in list)
 
-# idendity
-list1 =[1,2,3]
-list2 = [1,2,3]
-s= list1
+# # idendity
+# list1 =[1,2,3]
+# list2 = [1,2,3]
+# s= list1
 
-print(list1 is list2)
-print(list1 is s)
+# print(list1 is list2)
+# print(list1 is s)
+
+

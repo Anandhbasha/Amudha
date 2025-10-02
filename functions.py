@@ -54,4 +54,5 @@
 # valueD(int(input("Enter the number to print:")))
 
 
-
+def greet():
+    print("Welcome")

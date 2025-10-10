@@ -54,7 +54,7 @@
 # _news = "hg"
 # public
 
-# # encapsulation
+# # # encapsulation
 # class BankAccount:
 #     __balance = 0
 #     def deposit(self,amount):
@@ -81,7 +81,7 @@
 # list = [11,22,33]
 # [2,4,6]
 
-# Inheritence
+# # Inheritence
 # class vehicle:
 #     def brake(self):
 #         print("Vehicle stops")
@@ -133,20 +133,53 @@
 #     def add(self):
 #         print("Calc is working")
 
+
+# class calculator:
+#     def add(self,a=0,b=0,c=0):
+#         print(a+b+c)
+
 # calc = calculator()
-# print(calc.add(20,30,40))
-# print(calc.add(20,30))
-# print(calc.add(20))
+# calc.add(20,30,40)
+# calc.add(20,30)
+# calc.add(20)
 # calc.add()
 
 
-# overloading
-class calc:
-    def add(self,a=0,b=0,c=0):
-        return a+b+c
+# # overloading
+# class calc:
+#     def add(self,a=0,b=0,c=0):
+#         return a+b+c
 
-cal = calc()
-print(cal.add(20,50,60))
-print(cal.add(20,50))
-print(cal.add(20))
-        
+# cal = calc()
+# print(cal.add(20,50,60))
+# print(cal.add(20,50))
+# print(cal.add(20))
+
+
+# # abstraction
+# from abc import abstractmethod,ABC
+
+# class Bank(ABC):
+#     @abstractmethod
+#     def loan():
+#         pass
+#     @abstractmethod
+#     def intrest():
+#         pass
+# class Axis(Bank):
+#     def loan(self):
+#         print("Loan offered 50000 from Axis Bank")
+#     def intrest(self):
+#         print("Rate of intrest is 9.5% from Axis")
+# class HDFC(Bank):
+#     def loan(self):
+#         print("Loan offered 50000 from HDFC Bank")
+#     def intrest(self):
+#         print("Rate of inrest is 11.2% from HDFC")
+
+# bank1 = Axis()
+# bank2 = HDFC()
+# bank1.loan()
+# bank1.intrest()
+# bank2.loan()
+# bank2.intrest()

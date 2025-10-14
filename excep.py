@@ -41,3 +41,5 @@ except ZeroDivisionError:
     print("Don't use zero")
 except ValueError:
     print("Please enter only number")
+finally:
+    print("Code executed")

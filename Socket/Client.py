@@ -10,6 +10,8 @@ client_socket.send("Hello Server".encode())
 
 data = client_socket.recv(1024).decode()
 
+# first run the server next run the client file
+
 print("server says:",data)
 
 client_socket.close()

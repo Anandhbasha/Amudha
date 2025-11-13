@@ -16,4 +16,6 @@ print("Message from Client:",data)
 
 conn.send("message received:".encode())
 
+conn.close()
+
 server_socket.close()

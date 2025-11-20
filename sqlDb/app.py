@@ -1,56 +1,33 @@
-from flask import Flask, render_template
+from flask import Flask,render_template
 import mysql.connector
 
 app = Flask(__name__)
 
-def init_db():
-    conn = mysql.connector.connect(
+def dbConnect():
+    return mysql.connector.connect(
         host="localhost",
         user="root",
         password="",
-        database="newone"
+        database = "Newone"
     )
-    cursor = conn.cursor()
+    
+@app.route('/')
+def dbRead():
+    conn = dbConnect()
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM staff")
+    row = cur.fetchall()
+    conn.close()
+    return render_template("index.html",row =row)
 
-    # Create table if not exists
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS staff(
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(100),
-            course VARCHAR(50),
-            city VARCHAR(50),
-            mobile VARCHAR(20),
-            salary VARCHAR(20)
-        )
-    """)
-
-    # Insert data
-    cursor.execute("""
-        INSERT INTO staff (name, course, city, mobile, salary)
-        VALUES (%s, %s, %s, %s, %s)
-    """, ("Kannan", "python", "CBE", "8541548744", "25000"))
-
+@app.route('/add')
+def addUser():
+    conn = dbConnect()
+    cur = conn.cursor()
+    cur.execute("INSERT INTO staff (name,course,city,salary)values(%s,%s,%s,%s)",('raja','Design','erode','8000'))
     conn.commit()
     conn.close()
+    return "Inserted Successfully"
 
-init_db()
-
-
-@app.route('/')
-def home():
-    conn = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="newone"
-    )
-    cursor = conn.cursor()
-    cursor.execute("SELECT * FROM staff")
-    data = cursor.fetchall()
-    conn.close()
-
-    return render_template("index.html", list=data)
-
-
-if __name__ == "__main__":
+if __name__=="__main__":
     app.run(debug=True)
